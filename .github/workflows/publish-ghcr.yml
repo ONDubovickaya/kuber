@@ -21,9 +21,6 @@ jobs:
 
       - name: Login to GitHub Container Registry
         run: docker login --username ONDubovckaya --password ${{ secrets.GH_PAT }} ghcr.io
-      
-      - name: Grant execute permission for mvn
-        run: chmod +x mvn
 
       - name: Build a container image from our Spring Boot app using Paketo.io / Cloud Native Build Packs
         run: mvn spring-boot:build-image --imageName=$IMAGE_NAME
