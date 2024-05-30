@@ -19,7 +19,9 @@ jobs:
           distribution: 'temurin'
       
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: |
+          cd kuber
+          mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
       #- name: Setup Maven
