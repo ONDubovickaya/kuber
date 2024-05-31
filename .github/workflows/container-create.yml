@@ -29,9 +29,8 @@ jobs:
         username: ONDubovickaya
         password: ${{ secrets.GH_PAT }}
 
-    - name: Build the hello-world Docker image
+    - name: Build Docker image and push to container
       run: |
         cd kuber
         docker build . --tag ghcr.io/ondubovickaya/kuber:latest
-        docker run ghcr.io/ondubovickaya/kuber:latest
         docker push ghcr.io/ondubovickaya/kuber:latest
