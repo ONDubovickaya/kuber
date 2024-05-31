@@ -8,13 +8,6 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<distributionManagement>
-	    <repository>
-	      <id>github</id>
-	      <name>GitHub Packages</name>
-	      <url>https://maven.pkg.github.com/ONDubovickaya/kuber</url>
-	    </repository>
-  	</distributionManagement>
 	<groupId>rsoi.bmstu</groupId>
 	<artifactId>kuber</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
