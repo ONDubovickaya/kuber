@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kuber
+spec:
+  containers:
+  - name: kuber
+    image: ghcr.io/ondubovickaya/kuber:latest
+    imagePullPolicy: Always
+    ports:
+      - containerPort: 8090
+    imagePullSecrets:
+      - name: dockerconfigjson-github-com
