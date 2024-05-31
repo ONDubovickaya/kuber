@@ -18,6 +18,7 @@ jobs:
 
     - name: Build the hello-world Docker image
       run: |
+        cd kuber
         docker build . --tag ghcr.io/ondubovickaya/kuber:latest
         docker run ghcr.io/ondubovickaya/kuber:latest
         docker push ghcr.io/ondubovickaya/kuber:latest
