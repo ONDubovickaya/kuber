@@ -1,0 +1,5 @@
+kuber:
+  service:
+    type: ClusterIP
+    port: 8090
+    image: ghcr.io/ondubovickaya/kuber:latest
