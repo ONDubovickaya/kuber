@@ -1,29 +1,30 @@
-name: Docker Image CI for GHCR
+#name: Docker Image CI for GHCR
 
-on:
-  push
+#on:
+  #push
 
-jobs:
-  build_and_publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v4
+#jobs:
+  #build_and_publish:
+    #runs-on: ubuntu-latest
+    #permissions:
+      #contents: read
+      #packages: write
+    #steps:
+      #- uses: actions/checkout@v4
       
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+      #- name: Set up JDK
+        #uses: actions/setup-java@v4
+        #with:
+          #java-version: '17'
+          #distribution: 'temurin'
       
-      - name: Publish package
-        run: |
-          cd kuber
-          mvn --batch-mode deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      #- name: Publish package
+        #run: |
+          #cd kuber
+          #mvn --batch-mode deploy
+        #env:
+          #GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+######################################################################################################
       #- name: Setup Maven
         #uses: stCarolas/setup-maven@v4.4
         #with:
