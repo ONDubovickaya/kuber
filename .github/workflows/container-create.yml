@@ -34,3 +34,33 @@ jobs:
         cd kuber
         docker build . --tag ghcr.io/ondubovickaya/kuber:latest
         docker push ghcr.io/ondubovickaya/kuber:latest
+
+    - name: Start Minikube
+      uses: medyagh/setup-minikube@master
+    
+    - name: Try the cluster !
+      run: |
+        kubectl get pods -A
+
+    - name: Create Namespace
+      run: |
+        kubectl create namespace ondubovickaya
+        
+    - name: Deploy DB and services
+      run: |
+        kubectl get namespace
+        
+        cd k8s
+        
+        echo "------------------Deploy services------------------"
+        helm delete kuberex --namespace ondubovickaya --ignore-not-found
+        helm install -n ondubovickaya kuberex ./services
+    
+    - name: Wait 60s
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '60s'
+    
+    - name: All resources from namespace ondubovickaya
+      run: |
+        kubectl get all -n ondubovickaya
