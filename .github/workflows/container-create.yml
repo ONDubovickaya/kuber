@@ -1,0 +1,23 @@
+name: Publish to Github Container
+
+on: [push]
+
+jobs:
+  publish-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ONDubovickaya
+        password: ${{ secrets.GH_PAT }}
+
+    - name: Build the hello-world Docker image
+      run: |
+        docker build . --tag ghcr.io/ondubovickaya/kuber:latest
+        docker run ghcr.io/ondubovickaya/kuber:latest
+        docker push ghcr.io/ondubovickaya/kuber:latest
