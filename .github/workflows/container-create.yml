@@ -46,7 +46,7 @@ jobs:
       run: |
         kubectl create namespace ondubovickaya
         
-    - name: Deploy DB and services
+    - name: Deploy services to Minikube
       run: |
         kubectl get namespace
         
